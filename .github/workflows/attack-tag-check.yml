@@ -1,0 +1,13 @@
+name: ATT&CK tag check
+on:
+  pull_request:
+    branches: [ main ]
+permissions:
+  contents: read
+jobs:
+  attack-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Contrôler les tags ATT&CK des règles
+        run: python3 scripts/check_attack_tags.py
